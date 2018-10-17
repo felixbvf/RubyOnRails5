@@ -1,0 +1,72 @@
+<h1>Home#index</h1>
+<h1 class="text-center text-muted">Bienvenido a Bootstrap 4.1.3 con Ruby on Rails 5</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+<% if ! @users.empty? %>
+    <% @users.each do |user| %>
+        <b><p>Nombre: <%= user.username %>, Password: <%= user.password %></p></b>
+        <ul>
+          <li>
+            <% if ! user.posts.empty? %>
+                <% user.posts.each do |post| %>
+                    <p>Título: <%= post.title %>, Body: <%= post.body %></p>
+                <% end %>
+            <% else %>
+                No hay posts
+            <% end %>
+          </li>
+        </ul>
+    <% end %>
+<% else %>
+    No hay usuarios
+<% end %>
+
+<hr>
+
+<h1>Arrays</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+<%= @variable %><br>
+ 
+<%# Esto es un comentario. %>
+ 
+<h2>Ranges</h2>
+<%#	Si el último elemento de range es distinto de 5 %>
+<% unless @range.last == 5 %>
+    Last Range != 5
+<% else %>
+    <% @range.each do |num| %>
+        <%= num %>
+    <% end %>
+<% end %>
+
+
+
+
+<br>
+ 
+<h2>Arrays</h2>
+<%#	Si el array no está vacío %>
+<% if ! @array.empty? %>
+  <% @array.each do |num| %>
+        <%= num %>
+    <% end %>
+<% else %>
+    El array está vacío
+<% end %>
+<br>
+ 
+<%#	Si el hash está vacío %>
+<h2>Hash Literal</h2>
+<% if @literalHash.empty? %>
+    Hash is empty
+<% else %>
+    <% @literalHash.each do |key, val| %>
+        <%= key %>, <%= val %><br>
+    <% end %>
+<% end %>
+<br>
+ 
+<h2>Merge Arrays</h2>
+<%= @merge %>
+  
+<h2>Rutas</h2>
+<%= link_to('Home', home_url) %><br>
